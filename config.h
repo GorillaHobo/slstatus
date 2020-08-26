@@ -10,8 +10,7 @@ static const char unknown_str[] = "n/a";
 #define MAXLEN 2048
 
 /*
- * function            description                     argument (example)
- *
+ * function            description                     argument (example) 
  * battery_perc        battery percentage              battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
  * battery_state       battery charging state          battery name (BAT0)
@@ -65,9 +64,10 @@ static const struct arg args[] = {
 	/* function format          argument */
 	//{ datetime, "%s",           "%F %T" },
 	//{ wifi_perc, "W: (%3s%% on ", "wlp8s0" },
-    { netspeed_rx, "%sB/s  ", "enp0s3" },
-	{ run_command, ": %4s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-	{ cpu_perc, "[CPU  %s%%]   ", NULL	      },
-	{ ram_perc, "[RAM  %s%%]   ", NULL	      },
-	{ datetime, "%s",           "%a %b %d %r" },
+    { netspeed_rx, "  %sB/s   ", "wlp3s0" },
+	/* { run_command, "  : %4s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" }, */
+	{ cpu_perc, "[ %s%%]   ", NULL	      },
+	{ ram_used, "[ %s%%]   ", NULL	      },
+	{ run_command, ":%4s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+	{ datetime, " | %s",           "%a %b %d %H:%M" },
 };
